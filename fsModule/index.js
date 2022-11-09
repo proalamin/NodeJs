@@ -104,14 +104,24 @@ var server=http.createServer(function (req, res){
         //         res.end("file sync unlik successfull");
         //     }
 
+        // Async exists file
+        fs.exists("home.html", function(result){
+            if(result){
+                res.end("file found")
+            }
+            else{
+                res.end("file not found");
+            }
+        })
+
         // Sync exists file
-        let result = fs.existsSync("demossSyncRename3.txt");
-        if(result){
-            res.end("file found");
-        }
-        else{
-            res.end("file not found");
-        }
+        // let result = fs.existsSync("demossSyncRename3.txt");
+        // if(result){
+        //     res.end("file found");
+        // }
+        // else{
+        //     res.end("file not found");
+        // }
 
     }
 
